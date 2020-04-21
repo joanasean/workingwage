@@ -1,0 +1,118 @@
+.parallax {
+    /* The image used */
+    background-image: url("background_2.jpg");
+  
+    /* Set a specific height */
+    min-height: 1100px; 
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: repeat;
+    background-size: cover;
+  }
+
+  .roundedcorners{
+    border-radius: 20px;
+  }
+
+  li{
+      list-style-type: none;
+  }
+
+  #myImg:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5)
+    }
+
+
+.container{
+
+  font: 18px Arial, sans-serif;
+  font-style: normal;
+  color:cornsilk;
+  text-align: left;
+  margin-left: 200px;
+  text-shadow: 1px 1px 2px black, 0 0 1em rgb(70, 68, 68), 0 0 0.2em rgb(94, 92, 92);
+ 
+}
+.right {
+  position: absolute;
+  right: 200px;
+  width: 300px;
+  height: 750px;
+  background-color: blanchedalmond;
+  /* border: 3px solid grey; */
+  padding: 10px;
+  border-radius: 20px;
+}
+/* Masonry */
+
+.grid {
+    margin-left: 100px;
+}
+
+.grid-item {
+    width: 160px;
+    height: 120px;
+    float: none;
+    margin-bottom: 20px;
+    /* background: #D26; */
+    /* border: 2px solid #333; */
+    /* border-color: hsla(0, 4%, 52%, 0.5); */
+    border-radius: 15px;
+  }
+  .grid-item1 {
+    width: 1300px;
+    height: 500px;
+    float: none;
+    margin-bottom: 20px;
+    background: white;
+  }
+  .grid-item2 {
+    width: 120px;
+    height: 600px;
+    float: none;
+    margin-bottom: 20px;
+    background: #D26; 
+    border: 2px solid #333;
+    border-color: hsla(0, 4%, 52%, 0.5);
+    border-radius: 15px;
+    margin-right: 10px;
+  }
+
+
+  /*62.5% ratio*/
+  
+  .grid-item--width2 { width:  450px; }
+  .grid-item--width3 { width:  300px; }
+  .grid-item--width4 { width:  1300px; }
+  
+  .grid-item--height2 { height: 300px; }
+  .grid-item--height3 { height: 280px; }
+  .grid-item--height4 { height: 1000px; }
+
+  /*IFRAME*/
+  .iframe {
+    width: 1000px;
+    height: 1000px;
+    margin: 0 auto;
+    background-color:white;
+    display: block;
+    border-radius: 20px;
+    margin-right: 250px ;
+}
+
+.iframe2 {
+  width: 200px;
+  height: 500px;
+  margin-right: 100px;
+  background-color:white;
+  display: block;
+  border-radius: 20px;
+}
+
+  
+
+
+

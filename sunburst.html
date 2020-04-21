@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- metatags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Boostrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheet.css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <title>Sunburst Page</title>
+    <!-- Image and text -->
+    <nav class="navbar navbar-light">
+        <a class="navbar-brand" href="index.html">
+        <img src="workingwage.png" width="300" height="40" class="d-inline-block align-top" alt="">
+        </a>
+        <form class="form-inline">
+            <a href="data.html"><button class="btn" type="button" style="border-color:grey;">US Wage Data</button></a>
+        </form>
+    </nav>
+    <style>
+        body {
+            font-family: Sans-serif;
+            font-size: 11px;
+        }
+  
+        .slice {
+            cursor: pointer;
+        }
+  
+        .slice .main-arc {
+            stroke: #fff;
+            stroke-width: 1px;
+        }
+  
+        .slice .hidden-arc {
+            fill: none;
+        }
+  
+        .slice text {
+            pointer-events: none;
+            /* dominant-baseline: middle; */
+            text-anchor: middle;
+        }
+    </style>
+</head>
+<body>
+<div class="parallax"> 
+    <div class="container">
+        <hr> <p> This is a sunburst built based upon the United States Average Wage Per State. The structure of sunbursts is thought of as an heirarchical structure.
+            It begins at the first layer with the labeling of all 50 states. <br> Each state node, or sun ray, holds additional details on each state's occupations and average wage 
+            per occupation. In order to see these labels associated with each state, hover over individual components of the sun ray in order to see.
+             <br> It can be noted that this illustration, unlike the choropleth, allows for a deeper look into the make up of the average wage per state. Due to the large dataset size, the 
+             sunburst may take a moment to load..
+          <br><br>
+        </p>
+     </div>
+<!--YOU HAVE TO APPEND THE D3 TO DIV NOT BODY, so d3.append("div") -->
+<script>
+    const width = window.innerWidth,
+        height = window.innerHeight,
+        maxRadius = (Math.min(width, height) / 2) - 5;
+
+    const formatNumber = d3.format(',d');
+
+    const x = d3.scaleLinear()
+        .range([0, 2 * Math.PI])
+        .clamp(true);
+
+    const y = d3.scaleSqrt()
+        .range([maxRadius*.1, maxRadius]);
+
+    const color = d3.scaleOrdinal(d3.schemeCategory20);
+
+    const partition = d3.partition();
+
+    const arc = d3.arc()
+        .startAngle(d => x(d.x0))
+        .endAngle(d => x(d.x1))
+        .innerRadius(d => Math.max(0, y(d.y0)))
+        .outerRadius(d => Math.max(0, y(d.y1)));
+
+    const middleArcLine = d => {
+        const halfPi = Math.PI/2;
+        const angles = [x(d.x0) - halfPi, x(d.x1) - halfPi];
+        const r = Math.max(0, (y(d.y0) + y(d.y1)) / 2);
+
+        const middleAngle = (angles[1] + angles[0]) / 2;
+        const invertDirection = middleAngle > 0 && middleAngle < Math.PI; // On lower quadrants write text ccw
+        if (invertDirection) { angles.reverse(); }
+
+        const path = d3.path();
+        path.arc(0, 0, r, angles[0], angles[1], invertDirection);
+        return path.toString();
+    };
+
+    const textFits = d => {
+        const CHAR_SPACE = 6;
+
+        const deltaAngle = x(d.x1) - x(d.x0);
+        const r = Math.max(0, (y(d.y0) + y(d.y1)) / 2);
+        const perimeter = r * deltaAngle;
+
+        return d.data.name.length * CHAR_SPACE < perimeter;
+    };
+
+    const svg = d3.select('div').append('svg')
+        .style('width', '100vw')
+        .style('height', '100vh')
+        .attr('viewBox', `${-width / 2} ${-height / 2} ${width} ${height}`)
+        .on('click', () => focusOn()); // Reset zoom on canvas click
+
+    d3.json('flare.json', (error, root) => {
+        if (error) throw error;
+
+        root = d3.hierarchy(root);
+        root.sum(d => d.size);
+
+        const slice = svg.selectAll('g.slice')
+            .data(partition(root).descendants());
+
+        slice.exit().remove();
+
+        const newSlice = slice.enter()
+            .append('g').attr('class', 'slice')
+            .on('click', d => {
+                d3.event.stopPropagation();
+                focusOn(d);
+            });
+
+        newSlice.append('title')
+            .text(d => d.data.name + '\n' + formatNumber(d.value));
+
+        newSlice.append('path')
+            .attr('class', 'main-arc')
+            .style('fill', d => color((d.children ? d : d.parent).data.name))
+            .attr('d', arc);
+
+        newSlice.append('path')
+            .attr('class', 'hidden-arc')
+            .attr('id', (_, i) => `hiddenArc${i}`)
+            .attr('d', middleArcLine);
+
+        const text = newSlice.append('text')
+            .attr('display', d => textFits(d) ? null : 'none');
+
+        // Add white contour
+        text.append('textPath')
+            .attr('startOffset','50%')
+            .attr('xlink:href', (_, i) => `#hiddenArc${i}` )
+            .text(d => d.data.name)
+            .style('fill', 'none')
+            .style('stroke', '#fff')
+            .style('stroke-width', 5)
+            .style('stroke-linejoin', 'round');
+
+        text.append('textPath')
+            .attr('startOffset','50%')
+            .attr('xlink:href', (_, i) => `#hiddenArc${i}` )
+            .text(d => d.data.name);
+    });
+
+    function focusOn(d = { x0: 0, x1: 1, y0: 0, y1: 1 }) {
+        // Reset to top-level if no data point specified
+
+        const transition = svg.transition()
+            .duration(750)
+            .tween('scale', () => {
+                const xd = d3.interpolate(x.domain(), [d.x0, d.x1]),
+                    yd = d3.interpolate(y.domain(), [d.y0, 1]);
+                return t => { x.domain(xd(t)); y.domain(yd(t)); };
+            });
+
+        transition.selectAll('path.main-arc')
+            .attrTween('d', d => () => arc(d));
+
+        transition.selectAll('path.hidden-arc')
+            .attrTween('d', d => () => middleArcLine(d));
+
+        transition.selectAll('text')
+            .attrTween('display', d => () => textFits(d) ? null : 'none');
+
+        moveStackToFront(d);
+
+        //
+
+        function moveStackToFront(elD) {
+            svg.selectAll('.slice').filter(d => d === elD)
+                .each(function(d) {
+                    this.parentNode.appendChild(this);
+                    if (d.parent) { moveStackToFront(d.parent); }
+                })
+        }
+    }
+</script>
+            
+</div>
+
+
+
+ 
+    <!-- Boostrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- Masonry JS -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    
+    <script src="app.js"></script>
+</body>
+</html>

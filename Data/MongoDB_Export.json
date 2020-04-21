@@ -1,0 +1,51 @@
+{"_id":{"$oid":"5e9b48cadb17c26578c0e58a"},"state":"Alabama","value":"21.28670095"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e58b"},"state":"Alaska","value":"28.13845124"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e58c"},"state":"Arizona","value":"24.47104539"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e58d"},"state":"Arkansas","value":"21.33258964"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e58e"},"state":"California","value":"29.0012537"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e58f"},"state":"Colorado","value":"26.55084759"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e590"},"state":"Connecticut","value":"28.61560677"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e591"},"state":"Delaware","value":"24.49433213"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e592"},"state":"District of Columbia","value":"32.63837681"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e593"},"state":"Florida","value":"22.82216316"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e594"},"state":"Georgia","value":"22.54023719"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e595"},"state":"Hawaii","value":"26.76701627"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e596"},"state":"Idaho","value":"22.87359968"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e597"},"state":"Illinois","value":"26.09242123"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e598"},"state":"Indiana","value":"22.84604396"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e599"},"state":"Iowa","value":"22.97458273"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e59a"},"state":"Kansas","value":"23.04985539"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e59b"},"state":"Kentucky","value":"21.22151639"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e59c"},"state":"Louisiana","value":"22.31650771"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e59d"},"state":"Maine","value":"23.5730742"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e59e"},"state":"Maryland","value":"28.55754153"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e59f"},"state":"Massachusetts","value":"30.41046791"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5a0"},"state":"Michigan","value":"23.04613264"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5a1"},"state":"Minnesota","value":"25.28635403"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5a2"},"state":"Mississippi","value":"20.06643907"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5a3"},"state":"Missouri","value":"23.24788984"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5a4"},"state":"Montana","value":"23.3664898"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5a5"},"state":"Nebraska","value":"23.02651129"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5a6"},"state":"Nevada","value":"25.145625"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5a7"},"state":"New Hampshire","value":"27.05054252"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5a8"},"state":"New Jersey","value":"30.08500381"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5a9"},"state":"New Mexico","value":"23.63380875"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5aa"},"state":"New York","value":"29.63245536"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5ab"},"state":"North Carolina","value":"23.18054808"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5ac"},"state":"North Dakota","value":"24.42920271"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5ad"},"state":"Ohio","value":"23.8935545"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5ae"},"state":"Oklahoma","value":"22.75259318"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5af"},"state":"Oregon","value":"25.29822581"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5b0"},"state":"Pennsylvania","value":"25.03376166"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5b1"},"state":"Rhode Island","value":"28.68446429"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5b2"},"state":"South Carolina","value":"23.01154738"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5b3"},"state":"South Dakota","value":"21.30186371"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5b4"},"state":"Tennessee","value":"21.47321157"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5b5"},"state":"Texas","value":"24.47857994"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5b6"},"state":"Utah","value":"23.54682353"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5b7"},"state":"Vermont","value":"24.82275229"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5b8"},"state":"Virginia","value":"24.71303741"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5b9"},"state":"Washington","value":"28.03636095"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5ba"},"state":"West Virginia","value":"22.59102448"}
+{"_id":{"$oid":"5e9b48cadb17c26578c0e5bb"},"state":"Wisconsin","value":"23.35669757"}
+{"_id":{"$oid":"5e9b50edab5edb6578faf5b8"},"state":"Wyoming","value":"24.29"}

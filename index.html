@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- metatags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Boostrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheet.css">
+
+    <title>A Working Wage Home Page</title>
+    <!-- Image and text -->
+    <nav class="navbar navbar-light">
+        <a class="navbar-brand" href="index.html">
+        <img src="workingwage.png" width="300" height="40" class="d-inline-block align-top" alt="">
+        </a>
+        <form class="form-inline">
+           <a href="data.html"> <button class="btn" type="button" style="border-color:grey;">US Wage Data</button></a>
+    
+        </form>
+    </nav>
+</head>
+<body>
+<div class="parallax"> 
+    
+
+    <div class="container" ><hr>
+       Welcome to Project 2! In this project we are visualizing the average hourly wage of each profession collected by the Bureau of Labor and Statistics. 
+       <br> Below we have the following visuals created using D3. The data was cleaned using pandas and exported into a json format. Please click on the image of 
+       <br> each one below to see the visual. The sunburst allows for a detailed disaggregation of the data, as compared to the heatmap, which gives a high level
+       <br> view of each state.
+       <hr> For our external library we used <b>Masonry JS</b> which allows for a clean grid layout of images that adjusts to the size of the photo library.
+    <hr>
+    </div>
+    <div class="right" >
+        <b><center>ABOUT US</b></p></center><br>
+            <b>Michael Maimoni</b> is a manager at E&Y for almost a year now. He owns a prize dog named Miso and is a proud graduate of UCI (zot zot). In his spare time he 
+            enjoys hiking, traveling, leisure reading, and dive bars. 
+            <center><a href="https://www.linkedin.com/in/michaelmaimoni/"><img id="myImg" height="150" width="150" src="michael.png" ></center></a>
+        <br><br><p> <b>Joana Sean</b> is an associate at E&Y for 1.5 years now. Her hobbies include leisure chess, traveling, reading criminal fiction, and this class.
+        She is a proud alum of UCB and has two twin siamese cats.</p>
+        <center><a href="https://www.linkedin.com/in/joana-sean/"><img id="myImg" height="150" width="150" src="joana.png"></a></center>
+    
+    </div>
+        <div class="grid">
+            <div>
+                <a href="heatmap.html"><img id="myImg" src="usmap.png" class="grid-item grid-item--width2 grid-item--height2"></a></div>
+            <div>
+                <a href="sunburst.html"><img id="myImg" src="sunburst.png" class="grid-item grid-item--width3 grid-item--height3"></a></div>
+               
+            </div>
+ <br><br><br>
+    <div class="container">Source: Bureau of Labor and Statistics, WME 2018, API Call
+     <br><br><a href="https://www.bls.gov/developers/"><img id="myImg" height="150" width="180" src="bls.png"></a>
+    <br><br><br> Source: Masonry JS 
+    <br><br><a href="https://masonry.desandro.com/"><img id="myImg" height="100" width="250" src="masonry.png"></a>
+    </div>
+    
+        
+      </div>
+
+    
+    <!-- Boostrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+    <!-- Masonry JS -->
+    <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
+    
+    <script src="app.js"></script>
+</body>
+</html>
